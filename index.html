@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Monroe InspirEd Foundation — Empowering tomorrow's educators through scholarships, tutoring, and life coaching." />
+
+  <title>Monroe InspirEd Foundation</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES — Edit colors and fonts here
+       ============================================================ */
+    :root {
+      --red:        #D61F35;
+      --red-dark:   #a8182a;
+      --black:      #0a0a0a;
+      --black-soft: #111111;
+      --white:      #ffffff;
+      --gray:       #737373;
+      --gray-light: #f4f4f4;
+      --gray-mid:   #e0e0e0;
+
+      --font-heading: 'Oswald', sans-serif;
+      --font-body:    'Inter', sans-serif;
+
+      --max-width: 1160px;
+      --section-pad: 96px 24px;
+      --radius: 4px;
+      --transition: 0.2s ease;
+    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--black);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ============================================================
+       UTILITY
+       ============================================================ */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+
+    .section-label--light {
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ============================================================
+       NAVIGATION
+       ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-mid);
+    }
+
+    .nav__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 144px;
+    }
+
+    /* Logo in nav — constrained height */
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      height: 132px;
+    }
+
+    .nav__logo img {
+      height: 132px;
+      width: auto;
+    }
+
+    /* Nav links */
+    .nav__links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav__links a {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+      transition: color var(--transition);
+    }
+
+    .nav__links a:hover {
+      color: var(--red);
+    }
+
+    /* Hamburger (mobile) */
+    .nav__toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .nav__toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--black);
+      transition: var(--transition);
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+      padding-top: 144px; /* offset for fixed nav */
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, var(--black) 0%, #1a0508 50%, #260810 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle red accent shape behind content */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: -5%;
+      width: 55%;
+      height: 120%;
+      background: radial-gradient(ellipse at center, rgba(214,31,53,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 80px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero__text {}
+
+    .hero__headline {
+      font-family: var(--font-heading);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 28px;
+    }
+
+    .hero__headline em {
+      font-style: normal;
+      color: var(--red);
+    }
+
+    .hero__mission {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.72);
+      max-width: 480px;
+      margin-bottom: 40px;
+    }
+
+    .hero__cta {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--red);
+      padding: 16px 36px;
+      border-radius: var(--radius);
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .hero__cta:hover {
+      background: var(--red-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Hero logo display */
+    .hero__logo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero__logo-img {
+      width: 100%;
+      max-width: 460px;
+      border-radius: 8px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    }
+
+    /* ============================================================
+       ABOUT
+       ============================================================ */
+    .about {
+      padding: var(--section-pad);
+      background: var(--white);
+    }
+
+    .about__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about__left {}
+
+    .about__heading {
+      font-family: var(--font-heading);
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.1;
+      color: var(--black);
+      margin-bottom: 28px;
+    }
+
+    .about__heading em {
+      font-style: normal;
+      color: var(--red);
+    }
+
+    .about__body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    /* Right column — mission statement callout */
+    .about__right {}
+
+    .about__callout {
+      background: var(--black);
+      border-left: 4px solid var(--red);
+      padding: 40px 36px;
+      border-radius: var(--radius);
+    }
+
+    .about__callout-label {
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 20px;
+    }
+
+    .about__callout-text {
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.85);
+      font-weight: 300;
+    }
+
+    /* ============================================================
+       PROGRAMS
+       ============================================================ */
+    .programs {
+      padding: var(--section-pad);
+      background: var(--gray-light);
+    }
+
+    .programs__header {
+      max-width: var(--max-width);
+      margin: 0 auto 56px;
+    }
+
+    .programs__heading {
+      font-family: var(--font-heading);
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+
+    .programs__grid {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .program-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 44px 36px;
+      border-top: 4px solid var(--red);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .program-card__icon {
+      width: 52px;
+      height: 52px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* SVG icons embedded inline via CSS background — clean and dependency-free */
+    .icon-scholarship {
+      /* Mortarboard / diploma symbol */
+    }
+
+    .program-card__icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .program-card__title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--black);
+      margin-bottom: 16px;
+    }
+
+    .program-card__desc {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: #555;
+      flex: 1;
+      margin-bottom: 28px;
+    }
+
+    .program-card__by {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--gray);
+      border-top: 1px solid var(--gray-mid);
+      padding-top: 20px;
+    }
+
+    .program-card__by span {
+      color: var(--red);
+    }
+
+    /* ============================================================
+       TEAM
+       ============================================================ */
+    .team {
+      padding: var(--section-pad);
+      background: var(--white);
+    }
+
+    .team__header {
+      max-width: var(--max-width);
+      margin: 0 auto 56px;
+    }
+
+    .team__heading {
+      font-family: var(--font-heading);
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+
+    .team__grid {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+
+    .team-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    /* Initials avatar */
+    .team-card__avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--black);
+      border: 3px solid var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      flex-shrink: 0;
+    }
+
+    .team-card__initials {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .team-card__name {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--black);
+      margin-bottom: 6px;
+    }
+
+    .team-card__role {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+
+    .team-card__bio {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: #555;
+    }
+
+    /* ============================================================
+       CONNECT (CTA / SOCIAL)
+       ============================================================ */
+    .connect {
+      padding: var(--section-pad);
+      background: var(--black);
+      text-align: center;
+    }
+
+    .connect__inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .connect__heading {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .connect__heading em {
+      font-style: normal;
+      color: var(--red);
+    }
+
+    .connect__sub {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 44px;
+    }
+
+    .connect__ig-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--red);
+      padding: 16px 40px;
+      border-radius: var(--radius);
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .connect__ig-link:hover {
+      background: var(--red-dark);
+      transform: translateY(-1px);
+    }
+
+    .connect__ig-link svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+      background: var(--white);
+      border-top: 1px solid var(--gray-mid);
+      padding: 48px 24px;
+    }
+
+    .footer__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer__logo {
+      height: 108px;
+      width: auto;
+    }
+
+    .footer__copy {
+      font-size: 0.82rem;
+      color: var(--gray);
+    }
+
+    .footer__ig {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--black);
+      transition: color var(--transition);
+    }
+
+    .footer__ig:hover {
+      color: var(--red);
+    }
+
+    .footer__ig svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ============================================================
+       MOBILE NAVIGATION DRAWER
+       ============================================================ */
+    .nav__mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      background: var(--white);
+      border-top: 1px solid var(--gray-mid);
+      position: absolute;
+      top: 144px;
+      left: 0;
+      right: 0;
+      z-index: 99;
+    }
+
+    .nav__mobile-menu.is-open {
+      display: flex;
+    }
+
+    .nav__mobile-menu a {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--gray-mid);
+      transition: color var(--transition), background var(--transition);
+    }
+
+    .nav__mobile-menu a:hover {
+      color: var(--red);
+      background: var(--gray-light);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 900px) {
+      :root {
+        --section-pad: 72px 24px;
+      }
+
+      .nav__links {
+        display: none;
+      }
+
+      .nav__toggle {
+        display: flex;
+      }
+
+      .hero__inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        text-align: center;
+      }
+
+      .hero__mission {
+        max-width: 100%;
+      }
+
+      .hero__logo-wrap {
+        order: -1;
+      }
+
+      .hero__logo-img {
+        max-width: 320px;
+      }
+
+      .about__inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .programs__grid {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+      }
+
+      .team__grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+      }
+
+      .footer__inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero__logo-img {
+        max-width: 260px;
+      }
+
+      .about__callout {
+        padding: 28px 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+
+      <!-- Logo -->
+      <a href="#" class="nav__logo" aria-label="Monroe InspirEd Foundation — Home">
+        <img src="assets/temporary_logo.svg" alt="Monroe InspirEd Foundation logo" />
+      </a>
+
+      <!-- Desktop nav links -->
+      <ul class="nav__links" role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#connect">Contact</a></li>
+      </ul>
+
+      <!-- Mobile hamburger button -->
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile dropdown menu -->
+    <div class="nav__mobile-menu" id="mobileMenu" role="menu">
+      <a href="#about" role="menuitem">About</a>
+      <a href="#programs" role="menuitem">Programs</a>
+      <a href="#team" role="menuitem">Team</a>
+      <a href="#connect" role="menuitem">Contact</a>
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" id="home">
+    <div class="hero__inner">
+
+      <!-- Text column -->
+      <div class="hero__text">
+        <span class="section-label section-label--light">Monroe InspirEd Foundation</span>
+        <h1 class="hero__headline">
+          Empowering<br />
+          <em>Tomorrow's</em><br />
+          Educators
+        </h1>
+        <p class="hero__mission">
+          Monroe InspirEd is dedicated to supporting and empowering students who aspire
+          to become educators — providing resources, mentorship, and opportunities that
+          inspire leadership, equity, and excellence in education.
+        </p>
+        <a href="#programs" class="hero__cta">Explore Our Programs</a>
+      </div>
+
+      <!-- Logo image column -->
+      <div class="hero__logo-wrap">
+        <img
+          src="assets/original_logo.jpeg"
+          alt="Monroe InspirEd Foundation — bold red script logo on black"
+          class="hero__logo-img"
+        />
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       ABOUT
+       ============================================================ -->
+  <section class="about" id="about">
+    <div class="about__inner">
+
+      <!-- Left: narrative -->
+      <div class="about__left">
+        <span class="section-label">About Us</span>
+        <h2 class="about__heading">
+          A Foundation Built<br />
+          on <em>Purpose</em>
+        </h2>
+        <p class="about__body">
+          Monroe InspirEd Foundation was founded by a family united by a shared calling —
+          to invest in the next generation of educators. What began as a deeply personal
+          commitment grew into a formal organization dedicated to removing barriers,
+          building confidence, and illuminating the path toward a career in teaching.
+        </p>
+        <p class="about__body">
+          We believe that the best educators are those who were inspired by someone who
+          believed in them first. That belief is at the heart of everything we do — from
+          the scholarships we award to the students we coach and tutor along the way.
+        </p>
+        <p class="about__body">
+          Our programs are designed to meet students where they are and walk with them
+          toward where they want to be.
+        </p>
+      </div>
+
+      <!-- Right: mission statement callout -->
+      <div class="about__right">
+        <div class="about__callout">
+          <p class="about__callout-label">Our Mission</p>
+          <p class="about__callout-text">
+            Monroe InspirEd is dedicated to supporting and empowering students who
+            aspire to become educators by providing resources, mentorship, and
+            opportunities that inspire leadership, equity, and excellence in education.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PROGRAMS
+       ============================================================ -->
+  <section class="programs" id="programs">
+
+    <div class="programs__header">
+      <span class="section-label">What We Offer</span>
+      <h2 class="programs__heading">Our Programs</h2>
+    </div>
+
+    <div class="programs__grid">
+
+      <!-- Card 1: Tomorrow's Teachers Scholarship -->
+      <article class="program-card">
+        <div class="program-card__icon">
+          <!-- Mortarboard icon -->
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M26 8L4 18L26 28L48 18L26 8Z" fill="#D61F35" />
+            <path d="M12 23V34C12 34 17 40 26 40C35 40 40 34 40 34V23" stroke="#D61F35" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M46 18V30" stroke="#D61F35" stroke-width="2.5" stroke-linecap="round" />
+            <circle cx="46" cy="32" r="2" fill="#D61F35" />
+          </svg>
+        </div>
+        <h3 class="program-card__title">Tomorrow's Teachers Scholarship</h3>
+        <p class="program-card__desc">
+          Supporting aspiring educators with financial resources to pursue their dream
+          of teaching. We invest in students who have the heart and the drive to lead
+          the next generation.
+        </p>
+        <div class="program-card__by">
+          Overseen by <span>Terrence Bomar</span>
+        </div>
+      </article>
+
+      <!-- Card 2: Tutoring Services -->
+      <article class="program-card">
+        <div class="program-card__icon">
+          <!-- Open book icon -->
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 12C8 12 14 10 26 12V42C26 42 14 40 8 42V12Z" fill="#D61F35" opacity="0.25" />
+            <path d="M44 12C44 12 38 10 26 12V42C26 42 38 40 44 42V12Z" fill="#D61F35" opacity="0.25" />
+            <path d="M8 12C8 12 14 10 26 12V42C26 42 14 40 8 42V12Z" stroke="#D61F35" stroke-width="2.5" stroke-linejoin="round" />
+            <path d="M44 12C44 12 38 10 26 12V42C26 42 38 40 44 42V12Z" stroke="#D61F35" stroke-width="2.5" stroke-linejoin="round" />
+            <line x1="26" y1="12" x2="26" y2="42" stroke="#D61F35" stroke-width="2" />
+          </svg>
+        </div>
+        <h3 class="program-card__title">Tutoring Services</h3>
+        <p class="program-card__desc">
+          Personalized academic support for students at all levels. Our tutoring
+          program meets students where they are — building skills, restoring
+          confidence, and unlocking academic potential.
+        </p>
+        <div class="program-card__by">
+          Overseen by <span>Stefani Bomar</span>
+        </div>
+      </article>
+
+      <!-- Card 3: Life Coaching -->
+      <article class="program-card">
+        <div class="program-card__icon">
+          <!-- Compass / direction icon -->
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="26" cy="26" r="18" stroke="#D61F35" stroke-width="2.5" />
+            <circle cx="26" cy="26" r="3" fill="#D61F35" />
+            <path d="M26 8V14M26 38V44M8 26H14M38 26H44" stroke="#D61F35" stroke-width="2" stroke-linecap="round" />
+            <path d="M32 20L28 28L20 32L24 24L32 20Z" fill="#D61F35" />
+          </svg>
+        </div>
+        <h3 class="program-card__title">Life Coaching</h3>
+        <p class="program-card__desc">
+          Guiding students toward clarity, purpose, and personal growth. Our certified
+          life coach works with students to help them discover direction, navigate
+          challenges, and step into their full potential.
+        </p>
+        <div class="program-card__by">
+          Overseen by <span>Gail Francis</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       TEAM
+       ============================================================ -->
+  <section class="team" id="team">
+
+    <div class="team__header">
+      <span class="section-label">Our Founders</span>
+      <h2 class="team__heading">The Team Behind the Mission</h2>
+    </div>
+
+    <div class="team__grid">
+
+      <!-- Terrence Bomar -->
+      <div class="team-card">
+        <!-- Initials avatar — photos coming soon -->
+        <div class="team-card__avatar" aria-label="Initials avatar for Terrence Bomar">
+          <span class="team-card__initials">TB</span>
+        </div>
+        <h3 class="team-card__name">Terrence Bomar</h3>
+        <p class="team-card__role">Assistant Principal &amp; Coach</p>
+        <p class="team-card__bio">
+          An educator and school leader who understands the power of mentorship firsthand.
+          Terrence oversees the Tomorrow's Teachers Scholarship, ensuring that aspiring
+          educators have the financial support they need to take that first step.
+        </p>
+      </div>
+
+      <!-- Stefani Bomar -->
+      <div class="team-card">
+        <div class="team-card__avatar" aria-label="Initials avatar for Stefani Bomar">
+          <span class="team-card__initials">SB</span>
+        </div>
+        <h3 class="team-card__name">Stefani Bomar</h3>
+        <p class="team-card__role">Teacher &amp; Tutor</p>
+        <p class="team-card__bio">
+          A dedicated classroom teacher with a background in special education, Stefani
+          brings patience, expertise, and heart to every student interaction. She leads
+          the foundation's Tutoring Services program.
+        </p>
+      </div>
+
+      <!-- Gail Francis -->
+      <div class="team-card">
+        <div class="team-card__avatar" aria-label="Initials avatar for Gail Francis">
+          <span class="team-card__initials">GF</span>
+        </div>
+        <h3 class="team-card__name">Gail Francis</h3>
+        <p class="team-card__role">Retired Paraprofessional &amp; Certified Life Coach</p>
+        <p class="team-card__bio">
+          With decades of experience in school settings and a certification in life
+          coaching, Gail guides students toward clarity and confidence. She oversees
+          the foundation's Life Coaching program.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CONNECT / SOCIAL CTA
+       ============================================================ -->
+  <section class="connect" id="connect">
+    <div class="connect__inner">
+      <span class="section-label section-label--light">Stay Connected</span>
+      <h2 class="connect__heading">
+        Follow Our <em>Journey</em>
+      </h2>
+      <p class="connect__sub">
+        More is coming soon — including updated program details, application information,
+        and events. In the meantime, follow us on Instagram for updates, stories, and
+        inspiration.
+      </p>
+      <a
+        href="https://www.instagram.com/monroeinspired"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="connect__ig-link"
+        aria-label="Follow Monroe InspirEd Foundation on Instagram"
+      >
+        <!-- Instagram icon (inline SVG, no dependency) -->
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+        </svg>
+        Follow on Instagram
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="footer__inner">
+
+      <!-- Logo -->
+      <img
+        src="assets/temporary_logo.svg"
+        alt="Monroe InspirEd Foundation"
+        class="footer__logo"
+      />
+
+      <!-- Copyright -->
+      <p class="footer__copy">
+        &copy; <span id="footerYear">2025</span> Monroe InspirEd Foundation. All rights reserved.
+      </p>
+
+      <!-- Instagram link -->
+      <a
+        href="https://www.instagram.com/monroeinspired"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="footer__ig"
+        aria-label="Monroe InspirEd on Instagram"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+        </svg>
+        @monroeinspired
+      </a>
+
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       JAVASCRIPT — Mobile nav toggle & footer year
+       ============================================================ -->
+  <script>
+    // --- Mobile navigation toggle ---
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    navToggle.addEventListener('click', function () {
+      const isOpen = mobileMenu.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close mobile menu when a link is clicked
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // --- Auto-update copyright year ---
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
